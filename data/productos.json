@@ -9,7 +9,7 @@
     },
     {
       "id": "bife-ancho",
-      "nombre": "Bife de Ancho",
+      "nombre": "Bife Ancho",
       "precioKilo": 15200,
       "pesoAproxKg": 2.5,
       "imagen": "images/cortes/bife-ancho.jpg",
@@ -24,11 +24,11 @@
       "descripcion": "Corte fino y sabroso, clásico de la parrilla argentina."
     },
     {
-      "id": "asado",
+      "id": "asado-de-tira",
       "nombre": "Asado de Tira",
       "precioKilo": 12500,
       "pesoAproxKg": 3.0,
-      "imagen": "images/cortes/asado.jpg",
+      "imagen": "images/cortes/asado-de-tira.jpg",
       "descripcion": "Tira de asado con hueso, el corte más tradicional del asado."
     },
     {
@@ -36,7 +36,7 @@
       "nombre": "Vacío",
       "precioKilo": 13800,
       "pesoAproxKg": 2.8,
-      "imagen": "images/cortes/vacio.jpg",
+      "imagen": "images/cortes/vacio.png",
       "descripcion": "Corte con fibra y sabor intenso, ideal a la parrilla o al horno."
     },
     {
@@ -44,15 +44,23 @@
       "nombre": "Matambre",
       "precioKilo": 14200,
       "pesoAproxKg": 2.2,
-      "imagen": "images/cortes/matambre.jpg",
+      "imagen": "images/cortes/matambre.png",
       "descripcion": "Corte fino entre carne y grasa, ideal para matambre a la pizza o arrollado."
+    },
+    {
+      "id": "ojo de bife",
+      "nombre": "Ojo de Bife",
+      "precioKilo": 24200,
+      "pesoAproxKg": 2.1,
+      "imagen": "images/cortes/ojo-de-bife.png",
+      "descripcion": "Corte jugoso con buen marmoleo, perfecto para la parrilla."
     },
     {
       "id": "picanha",
       "nombre": "Picanha",
       "precioKilo": 19500,
       "pesoAproxKg": 2.0,
-      "imagen": "images/cortes/picanha.jpg",
+      "imagen": "images/cortes/picanha.png",
       "descripcion": "Corte brasileño con capa de grasa, jugoso y muy sabroso."
     },
     {
@@ -60,7 +68,7 @@
       "nombre": "Milanesa (Nalga)",
       "precioKilo": 13500,
       "pesoAproxKg": 2.5,
-      "imagen": "images/cortes/milanesa.jpg",
+      "imagen": "images/cortes/milanesa-nalga.png",
       "descripcion": "Nalga en fetas finas, ideal para milanesas."
     }
   ]
