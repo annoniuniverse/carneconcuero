@@ -1,0 +1,616 @@
+/* ============================
+   Estilos personalizados - carneconcuero
+   Paleta: rojo #dc2626 + azul petróleo #1f3a44 + crema #f5f1e8
+   ============================ */
+
+/* Variables de color */
+:root {
+    --color-rojo: #dc2626;
+    --color-rojo-oscuro: #b91c1c;
+    --color-petroleo: #1f3a44;
+    --color-petroleo-oscuro: #16292f;
+    --color-crema: #f5f1e8;
+    --color-crema-oscura: #ece6d8;
+    --color-whatsapp: #25D366;
+    --color-whatsapp-oscuro: #1ebe5a;
+    --color-rosa-pastel: #fce7f3;
+  }
+  
+  /* Suavizado de scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Tipografía general */
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  /* Tipografía de títulos */
+  h1, h2, h3, h4 {
+    font-family: 'Bitter', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+  
+  /* ============================
+     HEADER
+     ============================ */
+  
+  .header-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    backdrop-filter: blur(8px);
+    background-color: rgba(245, 241, 232, 0.95);
+    border-bottom: 1px solid var(--color-crema-oscura);
+  }
+  
+  .header-marca {
+    font-family: 'Bitter', Georgia, serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    color: var(--color-petroleo);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+  
+  .header-marca:hover {
+    color: var(--color-rojo);
+  }
+  
+  .header-marca .punto {
+    color: var(--color-rojo);
+  }
+  
+  /* Botón WhatsApp (Consultas) en el header */
+  .btn-whatsapp-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: var(--color-whatsapp);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.5rem 0.9rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+    font-size: 0.9rem;
+  }
+  
+  .btn-whatsapp-header:hover {
+    background-color: var(--color-whatsapp-oscuro);
+  }
+  
+  .btn-whatsapp-header svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    flex-shrink: 0;
+  }
+  
+  /* En mobile se oculta el texto, queda solo el ícono */
+  @media (max-width: 640px) {
+    .btn-whatsapp-header .texto-wa {
+      display: none;
+    }
+  }
+  
+  /* ============================
+     BUSCADOR
+     ============================ */
+  
+  .buscador-wrapper {
+    background-color: var(--color-petroleo);
+    padding: 1rem 0;
+  }
+  
+  .buscador-contenedor {
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  
+  .buscador-icono {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    pointer-events: none;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  
+  .buscador-input {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 2.75rem;
+    border: none;
+    border-radius: 0.625rem;
+    font-size: 1rem;
+    color: #111827;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.15s ease;
+  }
+  
+  .buscador-input::placeholder {
+    color: #9ca3af;
+  }
+  
+  .buscador-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.35);
+  }
+  
+  /* Mensaje "no hay resultados" */
+  .sin-resultados {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #6b7280;
+    font-size: 1rem;
+  }
+  
+  /* ============================
+     HERO (doble borde interno: rojo exterior + blanco interior)
+     ============================ */
+  
+  .hero {
+    background-color: var(--color-petroleo);
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(220, 38, 38, 0.18), transparent 45%),
+      radial-gradient(circle at 85% 70%, rgba(245, 241, 232, 0.08), transparent 40%);
+    color: #f5f1e8;
+    position: relative;
+  }
+  
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 3px solid var(--color-rojo);
+    pointer-events: none;
+  }
+  
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border: 2px solid #ffffff;
+    pointer-events: none;
+  }
+  
+  .hero h1 {
+    color: #ffffff;
+  }
+  
+  .hero p {
+    color: #cfd8dc;
+  }
+  
+  /* ============================
+     CARD DE PRODUCTO
+     ============================ */
+  
+  .card-producto {
+    background-color: #ffffff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--color-crema-oscura);
+  }
+  
+  .card-producto:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(31, 58, 68, 0.18);
+  }
+  
+  .card-producto img {
+    object-fit: cover;
+    width: 100%;
+    height: 200px;
+  }
+  
+  .img-placeholder {
+    background-color: var(--color-crema);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    font-size: 0.875rem;
+    height: 200px;
+  }
+  
+  .card-producto .nombre-corte {
+    font-family: 'Bitter', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--color-petroleo);
+  }
+  
+  .card-producto .descripcion {
+    color: #6b7280;
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+  
+  /* ============================
+     PRECIO
+     ============================ */
+  
+  .precio-kg-destacado {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+  }
+  
+  .precio-kg-valor {
+    font-family: 'Bitter', Georgia, serif;
+    font-weight: 800;
+    font-size: 1.75rem;
+    color: var(--color-rojo);
+    line-height: 1;
+  }
+  
+  .precio-kg-unidad {
+    font-size: 0.85rem;
+    color: #6b7280;
+    font-weight: 500;
+  }
+  
+  .precio-estimado-pieza {
+    font-size: 0.78rem;
+    color: #9ca3af;
+    line-height: 1.35;
+    margin-top: 0.25rem;
+  }
+  
+  .badge-peso {
+    background-color: var(--color-crema);
+    color: var(--color-petroleo);
+    font-size: 0.72rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  
+  /* ============================
+     BOTONES
+     ============================ */
+  
+  .btn-primario {
+    background-color: var(--color-rojo);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+    border: none;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .btn-primario::after {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border: 3px solid var(--color-petroleo);
+    border-radius: 0.3rem;
+    pointer-events: none;
+  }
+  
+  .btn-primario::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid #ffffff;
+    border-radius: 0.5rem;
+    pointer-events: none;
+  }
+  
+  .btn-primario:hover {
+    background-color: var(--color-rojo-oscuro);
+  }
+  
+  .btn-primario:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+  }
+  
+  .btn-primario:disabled::before,
+  .btn-primario:disabled::after {
+    display: none;
+  }
+  
+  /* ============================
+     AVISOS
+     ============================ */
+  
+  /* Aviso genérico (usado dentro del modal, se mantiene igual) */
+  .aviso-pesaje {
+    background-color: var(--color-crema);
+    border-left: 4px solid var(--color-petroleo);
+    color: var(--color-petroleo-oscuro);
+    padding: 0.75rem 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Aviso destacado arriba del catálogo (rosa pastel, más visible) */
+  .aviso-pesaje-destacado {
+    background-color: var(--color-rosa-pastel);
+    border-left: 5px solid var(--color-rojo);
+    color: var(--color-petroleo-oscuro);
+    padding: 1rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    line-height: 1.5;
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.08);
+  }
+  
+  .aviso-pesaje-destacado svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+    color: var(--color-rojo);
+    margin-top: 0.1rem;
+  }
+  
+  .aviso-pesaje-destacado strong {
+    font-weight: 700;
+    color: var(--color-rojo);
+  }
+  
+  /* ============================
+     MODAL CARRITO
+     ============================ */
+  
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(22, 41, 47, 0.6);
+    z-index: 50;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  .modal-overlay.activo {
+    display: flex;
+  }
+  
+  .modal-contenido {
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.25s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .modal-contenido::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .modal-contenido::-webkit-scrollbar-track {
+    background: #f3f4f6;
+    border-radius: 4px;
+  }
+  
+  .modal-contenido::-webkit-scrollbar-thumb {
+    background: #9ca3af;
+    border-radius: 4px;
+  }
+  
+  .modal-contenido::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+  }
+  
+  .modal-header {
+    background-color: var(--color-petroleo);
+    color: #ffffff;
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem 0.75rem 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .modal-header h3 {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  
+  .modal-cerrar {
+    color: #cfd8dc;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 0.15s ease;
+  }
+  
+  .modal-cerrar:hover {
+    color: #ffffff;
+  }
+  
+  /* ============================
+     CARRITO - ITEMS
+     ============================ */
+  
+  .fila-carrito {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.875rem 0;
+    border-bottom: 1px solid #e5e7eb;
+    align-items: center;
+  }
+  
+  .fila-carrito:last-child {
+    border-bottom: none;
+  }
+  
+  .btn-cantidad {
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.375rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    background-color: var(--color-crema);
+    color: var(--color-petroleo);
+    transition: background-color 0.15s ease;
+  }
+  
+  .btn-cantidad:hover {
+    background-color: var(--color-crema-oscura);
+  }
+  
+  .btn-eliminar-item {
+    color: #dc2626;
+    background: none;
+    border: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.25rem;
+  }
+  
+  .btn-eliminar-item:hover {
+    color: var(--color-rojo-oscuro);
+  }
+  
+  .carrito-vacio {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #6b7280;
+  }
+  
+  /* ============================
+     INPUTS CHECKOUT
+     ============================ */
+  
+  .input-checkout {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    background-color: #ffffff;
+  }
+  
+  .input-checkout:focus {
+    outline: none;
+    border-color: var(--color-petroleo);
+    box-shadow: 0 0 0 3px rgba(31, 58, 68, 0.18);
+  }
+  
+  /* ============================
+     CONTADOR CARRITO
+     ============================ */
+  
+  .contador-carrito {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--color-rojo);
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+  }
+  
+  .contador-carrito.oculto {
+    display: none;
+  }
+  
+  /* ============================
+     TEXTO SECUNDARIO
+     ============================ */
+  
+  .texto-secundario {
+    color: #6b7280;
+    font-size: 0.85rem;
+  }
+  
+  /* ============================
+     FOOTER (doble borde interno: rojo exterior + blanco interior)
+     ============================ */
+  
+  .footer-carne {
+    background-color: var(--color-petroleo);
+    color: #cfd8dc;
+    position: relative;
+  }
+  
+  .footer-carne::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 3px solid var(--color-rojo);
+    pointer-events: none;
+  }
+  
+  .footer-carne::after {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border: 2px solid #ffffff;
+    pointer-events: none;
+  }
+  
+  /* ============================
+     RESPONSIVE
+     ============================ */
+  
+  @media (max-width: 640px) {
+    .modal-contenido {
+      max-height: 95vh;
+      border-radius: 0.5rem;
+    }
+  
+    .card-producto img {
+      height: 160px;
+    }
+  
+    .img-placeholder {
+      height: 160px;
+    }
+  
+    .precio-kg-valor {
+      font-size: 1.5rem;
+    }
+  }

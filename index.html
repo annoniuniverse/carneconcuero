@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>carneconcuero — Carne envasada al vacío</title>
+  <meta name="description" content="Tienda online de carne envasada al vacío. Cortes de calidad, pedidos directos por WhatsApp." />
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="css/custom.css" />
+
+  <!-- Fuentes: Inter (cuerpo) + Bitter (títulos) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body class="min-h-screen flex flex-col" style="background-color: var(--color-crema);">
+
+  <!-- ================= HEADER ================= -->
+  <header class="header-sticky">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <a href="#" class="header-marca">
+        carneconcuero<span class="punto">.</span>
+      </a>
+
+      <div class="flex items-center gap-2">
+        <!-- Botón WhatsApp Consultas -->
+        <a
+          id="btn-whatsapp-consulta"
+          href="#"
+          class="btn-whatsapp-header"
+          aria-label="Consultas por WhatsApp"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+            <path d="M16.003 3C8.832 3 3 8.832 3 16c0 2.534.738 4.902 2.014 6.908L3.4 28.6l5.872-1.58A12.93 12.93 0 0 0 16.003 29C23.17 29 29 23.168 29 16S23.17 3 16.003 3zm0 23.6c-1.996 0-3.86-.586-5.42-1.594l-.388-.244-3.484.938.932-3.396-.252-.39A10.55 10.55 0 0 1 5.4 16c0-5.85 4.756-10.6 10.603-10.6 5.846 0 10.6 4.75 10.6 10.6 0 5.85-4.754 10.6-10.6 10.6zm5.822-7.94c-.318-.16-1.882-.928-2.174-1.034-.292-.106-.504-.16-.716.16-.212.318-.822 1.034-1.008 1.246-.186.212-.372.238-.69.08-.318-.16-1.342-.494-2.556-1.578-.944-.842-1.582-1.882-1.768-2.2-.186-.318-.02-.49.14-.648.144-.144.318-.372.478-.558.16-.186.212-.318.318-.53.106-.212.054-.398-.026-.558-.08-.16-.716-1.726-.982-2.364-.258-.62-.52-.536-.716-.546l-.61-.01c-.212 0-.558.08-.85.398-.292.318-1.116 1.088-1.116 2.654 0 1.566 1.142 3.078 1.3 3.29.16.212 2.246 3.432 5.444 4.812.76.328 1.354.524 1.816.672.764.242 1.46.208 2.01.126.612-.09 1.882-.77 2.148-1.512.266-.744.266-1.382.186-1.514-.08-.132-.292-.212-.61-.372z"/>
+          </svg>
+          <span class="texto-wa">Consultas</span>
+        </a>
+
+        <!-- Botón Carrito -->
+        <button
+          id="btn-abrir-carrito"
+          class="relative flex items-center gap-2 text-white font-semibold px-4 py-2 rounded-lg transition-colors"
+          style="background-color: var(--color-petroleo);"
+          onmouseover="this.style.backgroundColor='var(--color-rojo)'"
+          onmouseout="this.style.backgroundColor='var(--color-petroleo)'"
+          aria-label="Abrir carrito"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+          <span class="hidden sm:inline">Carrito</span>
+          <span id="contador-carrito" class="contador-carrito oculto">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="max-w-6xl mx-auto px-4 py-14 md:py-20 text-center">
+      <h1 class="text-3xl md:text-5xl font-extrabold mb-3">Carne envasada al vacío</h1>
+      <p class="text-base md:text-lg max-w-2xl mx-auto">
+        Cortes de calidad, envasados al vacío y entregados en tu domicilio. Hacé tu pedido directo por WhatsApp.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= BUSCADOR ================= -->
+  <section class="buscador-wrapper">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="buscador-contenedor">
+        <svg class="buscador-icono" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+        </svg>
+        <input
+          type="text"
+          id="input-buscador"
+          class="buscador-input"
+          placeholder="Buscar un corte... (ej: lomo, asado, entraña)"
+          autocomplete="off"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AVISO PESAJE DESTACADO ================= -->
+  <section class="max-w-6xl mx-auto px-4 pt-8 w-full">
+    <div class="aviso-pesaje-destacado">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+      </svg>
+      <span>
+        <strong>Importante:</strong> los precios mostrados son <em>estimados</em>. El monto final exacto se confirma con el pesaje real de cada pieza antes del envío.
+      </span>
+    </div>
+  </section>
+
+  <!-- ================= CATÁLOGO ================= -->
+  <main class="max-w-6xl mx-auto px-4 py-8 w-full flex-grow">
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--color-petroleo);">Nuestros cortes</h2>
+    <div id="catalogo" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Las tarjetas se generan dinámicamente desde js/app.js -->
+    </div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer-carne mt-8">
+    <div class="max-w-6xl mx-auto px-4 py-6 text-center text-sm">
+      <p class="font-semibold" style="color: #ffffff;">carneconcuero<span style="color: var(--color-rojo);">.</span></p>
+      <p class="mt-1">&copy; <span id="anio"></span> — Todos los derechos reservados.</p>
+      <p class="mt-1" style="color: #9fb2b9;">Pedidos por WhatsApp · Pago contra entrega</p>
+    </div>
+  </footer>
+
+  <!-- ================= MODAL CARRITO ================= -->
+  <div id="modal-carrito" class="modal-overlay">
+    <div class="modal-contenido">
+      <div class="modal-header">
+        <h3>Tu carrito</h3>
+        <button
+          id="btn-cerrar-carrito"
+          class="modal-cerrar"
+          aria-label="Cerrar carrito"
+        >
+          ✕
+        </button>
+      </div>
+
+      <div class="px-5 py-4">
+        <div id="carrito-items">
+          <!-- Se renderiza dinámicamente -->
+        </div>
+
+        <div class="mt-4 pt-4 border-t border-gray-200">
+          <div class="flex items-center justify-between mb-1 text-sm" style="color: #6b7280;">
+            <span>Peso total estimado:</span>
+            <span id="carrito-peso" class="font-semibold">~0.00 kg</span>
+          </div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-base font-semibold">Total aproximado:</span>
+            <span id="carrito-total" class="text-2xl font-extrabold" style="color: var(--color-rojo);">$0</span>
+          </div>
+          <div class="aviso-pesaje mb-4">
+            El monto final exacto se confirma con el pesaje real antes del envío.
+          </div>
+        </div>
+
+        <div class="border-t border-gray-200 pt-4">
+          <h4 class="font-bold mb-3" style="color: var(--color-petroleo);">Datos para la entrega</h4>
+          <div class="space-y-3">
+            <div>
+              <label for="input-nombre" class="block text-sm font-semibold mb-1">Nombre y apellido</label>
+              <input
+                type="text"
+                id="input-nombre"
+                class="input-checkout"
+                placeholder="Ej: Juan Pérez"
+                autocomplete="name"
+              />
+            </div>
+            <div>
+              <label for="input-direccion" class="block text-sm font-semibold mb-1">Dirección de entrega</label>
+              <input
+                type="text"
+                id="input-direccion"
+                class="input-checkout"
+                placeholder="Calle, número, localidad"
+                autocomplete="street-address"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-1">Método de pago</label>
+              <div class="input-checkout bg-gray-50 text-gray-700 cursor-not-allowed">
+                Pago contra entrega
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5 flex flex-col gap-2">
+          <button
+            id="btn-checkout"
+            class="btn-primario w-full"
+            disabled
+          >
+            Confirmar pedido por WhatsApp
+          </button>
+          <button
+            id="btn-vaciar"
+            class="text-sm underline self-center"
+            style="color: #9ca3af;"
+          >
+            Vaciar carrito
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Año dinámico en el footer
+    document.getElementById('anio').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

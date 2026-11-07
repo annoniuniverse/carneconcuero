@@ -1,0 +1,66 @@
+[
+    {
+      "id": "lomo",
+      "nombre": "Lomo",
+      "precioKilo": 18500,
+      "pesoAproxKg": 2.0,
+      "imagen": "images/cortes/lomo.jpg",
+      "descripcion": "Corte tierno y magro, ideal para medallones y bifes de lomo."
+    },
+    {
+      "id": "bife-ancho",
+      "nombre": "Bife de Ancho",
+      "precioKilo": 15200,
+      "pesoAproxKg": 2.5,
+      "imagen": "images/cortes/bife-ancho.jpg",
+      "descripcion": "Corte jugoso con buen marmoleo, perfecto para la parrilla."
+    },
+    {
+      "id": "entrana",
+      "nombre": "Entraña",
+      "precioKilo": 16800,
+      "pesoAproxKg": 1.8,
+      "imagen": "images/cortes/entrana.jpg",
+      "descripcion": "Corte fino y sabroso, clásico de la parrilla argentina."
+    },
+    {
+      "id": "asado",
+      "nombre": "Asado de Tira",
+      "precioKilo": 12500,
+      "pesoAproxKg": 3.0,
+      "imagen": "images/cortes/asado.jpg",
+      "descripcion": "Tira de asado con hueso, el corte más tradicional del asado."
+    },
+    {
+      "id": "vacio",
+      "nombre": "Vacío",
+      "precioKilo": 13800,
+      "pesoAproxKg": 2.8,
+      "imagen": "images/cortes/vacio.jpg",
+      "descripcion": "Corte con fibra y sabor intenso, ideal a la parrilla o al horno."
+    },
+    {
+      "id": "matambre",
+      "nombre": "Matambre",
+      "precioKilo": 14200,
+      "pesoAproxKg": 2.2,
+      "imagen": "images/cortes/matambre.jpg",
+      "descripcion": "Corte fino entre carne y grasa, ideal para matambre a la pizza o arrollado."
+    },
+    {
+      "id": "picanha",
+      "nombre": "Picanha",
+      "precioKilo": 19500,
+      "pesoAproxKg": 2.0,
+      "imagen": "images/cortes/picanha.jpg",
+      "descripcion": "Corte brasileño con capa de grasa, jugoso y muy sabroso."
+    },
+    {
+      "id": "milanesa",
+      "nombre": "Milanesa (Nalga)",
+      "precioKilo": 13500,
+      "pesoAproxKg": 2.5,
+      "imagen": "images/cortes/milanesa.jpg",
+      "descripcion": "Nalga en fetas finas, ideal para milanesas."
+    }
+  ]
