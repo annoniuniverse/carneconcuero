@@ -49,6 +49,50 @@
       return productos.filter((p) => normalizar(p.nombre).includes(f));
     }
   
+    // Obtiene la cantidad en el carrito de un producto por id
+    function cantidadEnCarrito(id) {
+      const item = Cart.obtenerItems().find((i) => i.id === id);
+      return item ? item.cantidad : 0;
+    }
+  
+    // Genera el HTML del control de cantidad (botón agregar o selector − N +)
+    function htmlControlCantidad(prod) {
+      const cantidad = cantidadEnCarrito(prod.id);
+  
+      if (cantidad === 0) {
+        return `
+          <button
+            class="btn-primario w-full mt-auto"
+            data-agregar="${prod.id}"
+          >
+            Agregar al carrito
+          </button>
+        `;
+      }
+  
+      return `
+        <div
+          class="w-full mt-auto rounded-lg flex items-center justify-between px-2"
+          style="background-color: var(--color-petroleo); height: 46px;"
+          data-control="${prod.id}"
+        >
+          <button
+            class="flex items-center justify-center w-9 h-9 rounded-md text-white font-bold text-xl"
+            style="background-color: rgba(255,255,255,0.15);"
+            data-restar-tarjeta="${prod.id}"
+            aria-label="Restar unidad"
+          >−</button>
+          <span class="text-white font-bold text-lg" data-cantidad-tarjeta="${prod.id}">${cantidad}</span>
+          <button
+            class="flex items-center justify-center w-9 h-9 rounded-md text-white font-bold text-xl"
+            style="background-color: rgba(255,255,255,0.15);"
+            data-sumar-tarjeta="${prod.id}"
+            aria-label="Sumar unidad"
+          >+</button>
+        </div>
+      `;
+    }
+  
     // Renderizar las tarjetas de producto
     function renderizarCatalogo() {
       const contenedor = document.getElementById('catalogo');
@@ -97,19 +141,16 @@
               </p>
             </div>
   
-            <button
-              class="btn-primario w-full mt-auto"
-              data-agregar="${prod.id}"
-            >
-              Agregar al carrito
-            </button>
+            <div data-zona-control="${prod.id}">
+              ${htmlControlCantidad(prod)}
+            </div>
           </div>
         `;
   
         contenedor.appendChild(card);
       });
   
-      // Delegación de eventos para botones "Agregar"
+      // Delegación de eventos
       contenedor.querySelectorAll('[data-agregar]').forEach((btn) => {
         btn.addEventListener('click', () => {
           const id = btn.getAttribute('data-agregar');
@@ -118,21 +159,93 @@
             Cart.agregar(producto);
             actualizarContador();
             renderizarCarrito();
-            mostrarFeedbackBoton(btn);
+            actualizarControlTarjeta(id);
           }
+        });
+      });
+  
+      contenedor.querySelectorAll('[data-sumar-tarjeta]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-sumar-tarjeta');
+          const producto = productos.find((p) => p.id === id);
+          if (producto) {
+            Cart.agregar(producto);
+            actualizarContador();
+            renderizarCarrito();
+            actualizarControlTarjeta(id);
+          }
+        });
+      });
+  
+      contenedor.querySelectorAll('[data-restar-tarjeta]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-restar-tarjeta');
+          Cart.quitar(id);
+          actualizarContador();
+          renderizarCarrito();
+          actualizarControlTarjeta(id);
         });
       });
     }
   
-    // Feedback breve al agregar
-    function mostrarFeedbackBoton(btn) {
-      const textoOriginal = btn.textContent;
-      btn.textContent = '✓ Agregado';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = textoOriginal;
-        btn.disabled = false;
-      }, 900);
+    // Actualiza solo el bloque de control de una tarjeta (sin re-renderizar todo el catálogo)
+    function actualizarControlTarjeta(id) {
+      const zona = document.querySelector(`[data-zona-control="${id}"]`);
+      if (!zona) return;
+      const producto = productos.find((p) => p.id === id);
+      if (!producto) return;
+  
+      zona.innerHTML = htmlControlCantidad(producto);
+  
+      // Re-enganchar listeners del bloque recién creado
+      const btnAgregar = zona.querySelector('[data-agregar]');
+      if (btnAgregar) {
+        btnAgregar.addEventListener('click', () => {
+          const prodId = btnAgregar.getAttribute('data-agregar');
+          const prod = productos.find((p) => p.id === prodId);
+          if (prod) {
+            Cart.agregar(prod);
+            actualizarContador();
+            renderizarCarrito();
+            actualizarControlTarjeta(prodId);
+          }
+        });
+      }
+  
+      const btnSumar = zona.querySelector('[data-sumar-tarjeta]');
+      if (btnSumar) {
+        btnSumar.addEventListener('click', () => {
+          const prodId = btnSumar.getAttribute('data-sumar-tarjeta');
+          const prod = productos.find((p) => p.id === prodId);
+          if (prod) {
+            Cart.agregar(prod);
+            actualizarContador();
+            renderizarCarrito();
+            actualizarControlTarjeta(prodId);
+          }
+        });
+      }
+  
+      const btnRestar = zona.querySelector('[data-restar-tarjeta]');
+      if (btnRestar) {
+        btnRestar.addEventListener('click', () => {
+          const prodId = btnRestar.getAttribute('data-restar-tarjeta');
+          Cart.quitar(prodId);
+          actualizarContador();
+          renderizarCarrito();
+          actualizarControlTarjeta(prodId);
+        });
+      }
+    }
+  
+    // Refresca todos los controles de tarjeta (se llama cuando el carrito cambia desde el modal)
+    function actualizarTodosLosControles() {
+      productos.forEach((p) => {
+        const zona = document.querySelector(`[data-zona-control="${p.id}"]`);
+        if (zona) {
+          actualizarControlTarjeta(p.id);
+        }
+      });
     }
   
     // Actualizar contador del header
@@ -197,7 +310,6 @@
         contenedor.appendChild(fila);
       });
   
-      // Listeners
       contenedor.querySelectorAll('[data-sumar]').forEach((btn) => {
         btn.addEventListener('click', () => {
           const id = btn.getAttribute('data-sumar');
@@ -206,6 +318,7 @@
             Cart.agregar(item);
             actualizarContador();
             renderizarCarrito();
+            actualizarControlTarjeta(id);
           }
         });
       });
@@ -216,6 +329,7 @@
           Cart.quitar(id);
           actualizarContador();
           renderizarCarrito();
+          actualizarControlTarjeta(id);
         });
       });
   
@@ -225,6 +339,7 @@
           Cart.eliminar(id);
           actualizarContador();
           renderizarCarrito();
+          actualizarControlTarjeta(id);
         });
       });
   
@@ -306,11 +421,11 @@
             Cart.vaciar();
             actualizarContador();
             renderizarCarrito();
+            actualizarTodosLosControles();
           }
         });
       }
   
-      // Buscador: filtra en vivo
       const inputBuscador = document.getElementById('input-buscador');
       if (inputBuscador) {
         inputBuscador.addEventListener('input', (e) => {
