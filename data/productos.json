@@ -4,7 +4,7 @@
     "nombre": "Lomo",
     "tipoVenta": "kilo",
     "precioKilo": 31900,
-    "pesoAproxKg": 2.0,
+    "pesoAproxKg": 1.7,
     "imagen": "images/cortes/lomo.jpg",
     "descripcion": "Corte tierno y magro, ideal para medallones y bifes de lomo."
   },
