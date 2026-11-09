@@ -17,6 +17,11 @@
       return '$' + Math.round(valor).toLocaleString('es-AR');
     }
   
+    // Devuelve true si el producto se vende por kilo
+    function esPorKilo(prod) {
+      return prod.tipoVenta === 'kilo';
+    }
+  
     // Cargar productos desde el JSON
     async function cargarProductos() {
       try {
@@ -55,7 +60,7 @@
       return item ? item.cantidad : 0;
     }
   
-    // Genera el HTML del control de cantidad (botón agregar o selector − N +)
+    // Genera el HTML del control de cantidad
     function htmlControlCantidad(prod) {
       const cantidad = cantidadEnCarrito(prod.id);
   
@@ -93,6 +98,39 @@
       `;
     }
   
+    // Genera el bloque de precio según tipo de venta
+    function htmlBloquePrecio(prod) {
+      if (esPorKilo(prod)) {
+        const precioUnitario = Math.round(prod.precioKilo * prod.pesoAproxKg);
+        return `
+          <div class="precio-kg-destacado">
+            <span class="precio-kg-valor">${formatearPrecio(prod.precioKilo)}</span>
+            <span class="precio-kg-unidad">/ kg</span>
+          </div>
+          <p class="precio-estimado-pieza">
+            Precio estimado por pieza (~${prod.pesoAproxKg.toFixed(1)} kg): ${formatearPrecio(precioUnitario)}
+          </p>
+        `;
+      }
+      return `
+        <div class="precio-kg-destacado">
+          <span class="precio-kg-valor">${formatearPrecio(prod.precioUnidad)}</span>
+          <span class="precio-kg-unidad">/ unidad</span>
+        </div>
+        <p class="precio-estimado-pieza">
+          Precio fijo por unidad
+        </p>
+      `;
+    }
+  
+    // Genera el badge (peso si es por kilo, nada si es por unidad)
+    function htmlBadge(prod) {
+      if (esPorKilo(prod)) {
+        return `<span class="badge-peso">~${prod.pesoAproxKg.toFixed(1)} kg</span>`;
+      }
+      return '';
+    }
+  
     // Renderizar las tarjetas de producto
     function renderizarCatalogo() {
       const contenedor = document.getElementById('catalogo');
@@ -109,8 +147,6 @@
       }
   
       lista.forEach((prod) => {
-        const precioUnitario = Math.round(prod.precioKilo * prod.pesoAproxKg);
-  
         const card = document.createElement('div');
         card.className =
           'card-producto rounded-lg overflow-hidden shadow-md flex flex-col';
@@ -127,18 +163,12 @@
           <div class="p-4 flex flex-col flex-grow">
             <div class="flex items-start justify-between gap-2 mb-1">
               <h3 class="nombre-corte">${prod.nombre}</h3>
-              <span class="badge-peso">~${prod.pesoAproxKg.toFixed(1)} kg</span>
+              ${htmlBadge(prod)}
             </div>
             <p class="descripcion mb-4 flex-grow">${prod.descripcion}</p>
   
             <div class="mb-4">
-              <div class="precio-kg-destacado">
-                <span class="precio-kg-valor">${formatearPrecio(prod.precioKilo)}</span>
-                <span class="precio-kg-unidad">/ kg</span>
-              </div>
-              <p class="precio-estimado-pieza">
-                Precio estimado por pieza (~${prod.pesoAproxKg.toFixed(1)} kg): ${formatearPrecio(precioUnitario)}
-              </p>
+              ${htmlBloquePrecio(prod)}
             </div>
   
             <div data-zona-control="${prod.id}">
@@ -150,7 +180,7 @@
         contenedor.appendChild(card);
       });
   
-      // Delegación de eventos
+      // Delegación de eventos inicial
       contenedor.querySelectorAll('[data-agregar]').forEach((btn) => {
         btn.addEventListener('click', () => {
           const id = btn.getAttribute('data-agregar');
@@ -188,7 +218,7 @@
       });
     }
   
-    // Actualiza solo el bloque de control de una tarjeta (sin re-renderizar todo el catálogo)
+    // Actualiza solo el bloque de control de una tarjeta
     function actualizarControlTarjeta(id) {
       const zona = document.querySelector(`[data-zona-control="${id}"]`);
       if (!zona) return;
@@ -197,7 +227,6 @@
   
       zona.innerHTML = htmlControlCantidad(producto);
   
-      // Re-enganchar listeners del bloque recién creado
       const btnAgregar = zona.querySelector('[data-agregar]');
       if (btnAgregar) {
         btnAgregar.addEventListener('click', () => {
@@ -238,7 +267,7 @@
       }
     }
   
-    // Refresca todos los controles de tarjeta (se llama cuando el carrito cambia desde el modal)
+    // Refresca todos los controles de tarjeta
     function actualizarTodosLosControles() {
       productos.forEach((p) => {
         const zona = document.querySelector(`[data-zona-control="${p.id}"]`);
@@ -288,17 +317,28 @@
       contenedor.innerHTML = '';
   
       items.forEach((item) => {
+        const esKilo = item.tipoVenta === 'kilo';
+        const lineaSubtotal = esKilo
+          ? `<p class="text-sm font-semibold mt-1" style="color: var(--color-rojo);">
+              ${Cart.formatearPrecio(Cart.subtotalItem(item))} <span style="color:#9ca3af; font-weight:400;">(estimado)</span>
+            </p>`
+          : `<p class="text-sm font-semibold mt-1" style="color: var(--color-rojo);">
+              ${Cart.formatearPrecio(Cart.subtotalItem(item))}
+            </p>`;
+  
+        const lineaDetalle = esKilo
+          ? `${Cart.formatearPrecio(item.precioKilo)}/kg · ~${item.pesoAproxKg.toFixed(1)} kg por pieza`
+          : `${Cart.formatearPrecio(item.precioUnidad)} por unidad`;
+  
         const fila = document.createElement('div');
         fila.className = 'fila-carrito';
         fila.innerHTML = `
           <div class="flex-grow">
             <p class="font-semibold" style="color: var(--color-petroleo);">${item.nombre}</p>
             <p class="texto-secundario">
-              ${Cart.formatearPrecio(item.precioKilo)}/kg · ~${item.pesoAproxKg.toFixed(1)} kg por pieza
+              ${lineaDetalle}
             </p>
-            <p class="text-sm font-semibold mt-1" style="color: var(--color-rojo);">
-              ${Cart.formatearPrecio(Cart.subtotalItem(item))} <span style="color:#9ca3af; font-weight:400;">(estimado)</span>
-            </p>
+            ${lineaSubtotal}
           </div>
           <div class="flex items-center gap-2">
             <button class="btn-cantidad" data-quitar="${item.id}">−</button>

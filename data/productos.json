@@ -1,82 +1,109 @@
 [
-    {
-      "id": "lomo",
-      "nombre": "Lomo",
-      "precioKilo": 31900,
-      "pesoAproxKg": 2.0,
-      "imagen": "images/cortes/lomo.jpg",
-      "descripcion": "Corte tierno y magro, ideal para medallones y bifes de lomo."
-    },
-    {
-      "id": "Colita de Cuadril",
-      "nombre": "Colita de Cuadril",
-      "precioKilo": 23000,
-      "pesoAproxKg": 1.5,
-      "imagen": "images/cortes/colita.png",
-      "descripcion": "Corte jugoso con buen marmoleo, perfecto para la parrilla."
-    },
-    {
-      "id": "entrana",
-      "nombre": "Entraña",
-      "precioKilo": 32900,
-      "pesoAproxKg": 1.8,
-      "imagen": "images/cortes/entrana.jpg",
-      "descripcion": "Corte fino y sabroso, clásico de la parrilla argentina."
-    },
-    {
-      "id": "asado-banderita",
-      "nombre": "Asado Banderita",
-      "precioKilo": 25000,
-      "pesoAproxKg": 1.0,
-      "imagen": "images/cortes/asado-banderita.jpg",
-      "descripcion": "Tira de asado con hueso, el corte más tradicional del asado."
-    },
-    {
-      "id": "vacio",
-      "nombre": "Vacío",
-      "precioKilo": 19500,
-      "pesoAproxKg": 4,
-      "imagen": "images/cortes/vacio.png",
-      "descripcion": "Corte con fibra y sabor intenso, ideal a la parrilla o al horno."
-    },
-    {
-      "id": "ojo de bife",
-      "nombre": "Ojo de Bife",
-      "precioKilo": 24200,
-      "pesoAproxKg": 2.1,
-      "imagen": "images/cortes/ojo-de-bife.png",
-      "descripcion": "Corte jugoso con buen marmoleo, perfecto para la parrilla."
-    },
-    {
-      "id": "matambre-de-cerdo",
-      "nombre": "Matambre de Cerdo",
-      "precioKilo": 14200,
-      "pesoAproxKg": 2.2,
-      "imagen": "images/cortes/matambre-de-cerdo.png",
-      "descripcion": "Corte fino entre carne y grasa, ideal para matambre a la pizza o arrollado."
-    },
-    {
-      "id": "Asado-5-6-Costillas",
-      "nombre": "Asado 5 / 6 Costillas",
-      "precioKilo": 22500,
-      "pesoAproxKg": 4,
-      "imagen": "images/cortes/asado-6-costillas.png",
-      "descripcion": "Corte brasileño con capa de grasa, jugoso y muy sabroso."
-    },
-    {
-      "id": "Peceto",
-      "nombre": "peceto-feteado",
-      "precioKilo": 22800,
-      "pesoAproxKg": 2.5,
-      "imagen": "images/cortes/peceto-feteado.png",
-      "descripcion": "Nalga en fetas finas, ideal para milanesas."
-    },
-    {
-      "id": "Provoleta",
-      "nombre": "provoleta",
-      "precioKilo": 7900,
-      "pesoAproxKg": 0.250,
-      "imagen": "images/cortes/provoleta.png",
-      "descripcion": "Provoleta, fuerte en la provoletera bien caliente."
-    }
-  ]
+  {
+    "id": "lomo",
+    "nombre": "Lomo",
+    "tipoVenta": "kilo",
+    "precioKilo": 31900,
+    "pesoAproxKg": 2.0,
+    "imagen": "images/cortes/lomo.jpg",
+    "descripcion": "Corte tierno y magro, ideal para medallones y bifes de lomo."
+  },
+  {
+    "id": "Colita de Cuadril",
+    "nombre": "Colita de Cuadril",
+    "tipoVenta": "kilo",
+    "precioKilo": 23000,
+    "pesoAproxKg": 1.5,
+    "imagen": "images/cortes/colita.png",
+    "descripcion": "Corte jugoso con buen marmoleo, perfecto para la parrilla."
+  },
+  {
+    "id": "entrana",
+    "nombre": "Entraña",
+    "tipoVenta": "kilo",
+    "precioKilo": 32900,
+    "pesoAproxKg": 1.8,
+    "imagen": "images/cortes/entrana.jpg",
+    "descripcion": "Corte fino y sabroso, clásico de la parrilla argentina."
+  },
+  {
+    "id": "asado-banderita",
+    "nombre": "Asado Banderita",
+    "tipoVenta": "kilo",
+    "precioKilo": 25000,
+    "pesoAproxKg": 1.0,
+    "imagen": "images/cortes/asado-banderita.jpg",
+    "descripcion": "Tira de asado con hueso, el corte más tradicional del asado."
+  },
+  {
+    "id": "vacio",
+    "nombre": "Vacío",
+    "tipoVenta": "kilo",
+    "precioKilo": 19500,
+    "pesoAproxKg": 4,
+    "imagen": "images/cortes/vacio.png",
+    "descripcion": "Corte con fibra y sabor intenso, ideal a la parrilla o al horno."
+  },
+  {
+    "id": "ojo de bife",
+    "nombre": "Ojo de Bife",
+    "tipoVenta": "kilo",
+    "precioKilo": 24200,
+    "pesoAproxKg": 2.5,
+    "imagen": "images/cortes/ojo-de-bife.png",
+    "descripcion": "Corte jugoso con buen marmoleo, perfecto para la parrilla."
+  },
+  {
+    "id": "matambre-de-cerdo",
+    "nombre": "Matambre de Cerdo",
+    "tipoVenta": "kilo",
+    "precioKilo": 14200,
+    "pesoAproxKg": 2.2,
+    "imagen": "images/cortes/matambre-de-cerdo.png",
+    "descripcion": "Corte fino entre carne y grasa, ideal para matambre a la pizza o arrollado."
+  },
+  {
+    "id": "Asado-5-6-Costillas",
+    "nombre": "Asado 5 / 6 Costillas",
+    "tipoVenta": "kilo",
+    "precioKilo": 22500,
+    "pesoAproxKg": 4,
+    "imagen": "images/cortes/asado-6-costillas.png",
+    "descripcion": "Corte brasileño con capa de grasa, jugoso y muy sabroso."
+  },
+  {
+    "id": "Peceto",
+    "nombre": "peceto-feteado",
+    "tipoVenta": "kilo",
+    "precioKilo": 22800,
+    "pesoAproxKg": 2.5,
+    "imagen": "images/cortes/peceto-feteado.png",
+    "descripcion": "Nalga en fetas finas, ideal para milanesas."
+  },
+  {
+    "id": "Bife de Chorizo",
+    "nombre": "bife-de-chorizo",
+    "tipoVenta": "kilo",
+    "precioKilo": 27000,
+    "pesoAproxKg": 1,
+    "imagen": "images/cortes/bife-de-chorizo.png",
+    "descripcion": "Corte jugoso con buen marmoleo, perfecto para la parrilla, vuelta y vuelta."
+  },
+  {
+    "id": "Picanha",
+    "nombre": "picanha",
+    "tipoVenta": "kilo",
+    "precioKilo": 24000,
+    "pesoAproxKg": 1.7,
+    "imagen": "images/cortes/picanha.png",
+    "descripcion": "Corte sabroso, perfecto para la parrilla, muy buen precio."
+  },
+  {
+    "id": "Provoleta",
+    "nombre": "provoleta",
+    "tipoVenta": "unidad",
+    "precioUnidad": 7900,
+    "imagen": "images/cortes/provoleta.png",
+    "descripcion": "Provoleta, fuerte en la provoletera bien caliente."
+  }
+]
