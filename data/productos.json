@@ -21,7 +21,7 @@
     "id": "entrana",
     "nombre": "Entraña",
     "tipoVenta": "kilo",
-    "precioKilo": 32900,
+    "precioKilo": 33000,
     "pesoAproxKg": 1.8,
     "imagen": "images/cortes/entrana.jpg",
     "descripcion": "Corte fino y sabroso, clásico de la parrilla argentina."
@@ -48,7 +48,7 @@
     "id": "ojo de bife",
     "nombre": "Ojo de Bife",
     "tipoVenta": "kilo",
-    "precioKilo": 24200,
+    "precioKilo": 33500,
     "pesoAproxKg": 2.5,
     "imagen": "images/cortes/ojo-de-bife.png",
     "descripcion": "Corte jugoso con buen marmoleo, perfecto para la parrilla."
@@ -57,7 +57,7 @@
     "id": "matambre-de-cerdo",
     "nombre": "Matambre de Cerdo",
     "tipoVenta": "kilo",
-    "precioKilo": 14200,
+    "precioKilo": 22200,
     "pesoAproxKg": 2.2,
     "imagen": "images/cortes/matambre-de-cerdo.png",
     "descripcion": "Corte fino entre carne y grasa, ideal para matambre a la pizza o arrollado."
@@ -66,14 +66,14 @@
     "id": "Asado-5-6-Costillas",
     "nombre": "Asado 5 / 6 Costillas",
     "tipoVenta": "kilo",
-    "precioKilo": 22500,
+    "precioKilo": 25500,
     "pesoAproxKg": 4,
     "imagen": "images/cortes/asado-6-costillas.png",
     "descripcion": "Corte brasileño con capa de grasa, jugoso y muy sabroso."
   },
   {
     "id": "Peceto",
-    "nombre": "peceto-feteado",
+    "nombre": "Peceto Feteado",
     "tipoVenta": "kilo",
     "precioKilo": 22800,
     "pesoAproxKg": 2.5,
@@ -81,17 +81,17 @@
     "descripcion": "Nalga en fetas finas, ideal para milanesas."
   },
   {
-    "id": "Bife de Chorizo",
-    "nombre": "bife-de-chorizo",
+    "id": "Bife-de-Chorizo",
+    "nombre": "Bife de Chorizo",
     "tipoVenta": "kilo",
     "precioKilo": 27000,
     "pesoAproxKg": 1,
     "imagen": "images/cortes/bife-de-chorizo.png",
-    "descripcion": "Corte jugoso con buen marmoleo, perfecto para la parrilla, vuelta y vuelta."
+    "descripcion": "4 Bifes - Corte jugoso con buen marmoleo, perfecto para la parrilla, vuelta y vuelta."
   },
   {
     "id": "Picanha",
-    "nombre": "picanha",
+    "nombre": "Picanha",
     "tipoVenta": "kilo",
     "precioKilo": 24000,
     "pesoAproxKg": 1.7,
@@ -100,7 +100,7 @@
   },
   {
     "id": "Provoleta",
-    "nombre": "provoleta",
+    "nombre": "Provoleta",
     "tipoVenta": "unidad",
     "precioUnidad": 7900,
     "imagen": "images/cortes/provoleta.png",
