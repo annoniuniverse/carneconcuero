@@ -410,6 +410,8 @@
     function confirmarPedido() {
       const nombre = document.getElementById('input-nombre').value.trim();
       const direccion = document.getElementById('input-direccion').value.trim();
+      const comentarioEl = document.getElementById('input-comentario');
+      const comentario = comentarioEl ? comentarioEl.value.trim() : '';
   
       if (!nombre || !direccion) {
         alert('Por favor completá nombre y dirección antes de confirmar.');
@@ -421,7 +423,7 @@
         return;
       }
   
-      Cart.enviarPorWhatsApp(TELEFONO_WHATSAPP, { nombre, direccion });
+      Cart.enviarPorWhatsApp(TELEFONO_WHATSAPP, { nombre, direccion, comentario });
     }
   
     // Configurar el enlace del botón "Consultas" del header

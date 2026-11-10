@@ -122,6 +122,11 @@
       lineas.push('*Cliente:*');
       lineas.push('Nombre: ' + cliente.nombre);
       lineas.push('Dirección: ' + cliente.direccion);
+  
+      if (cliente.comentario && cliente.comentario.trim() !== '') {
+        lineas.push('Comentario: ' + cliente.comentario.trim());
+      }
+  
       lineas.push('Método de pago: Contra entrega');
       lineas.push('');
       lineas.push('*Detalle del pedido:*');
@@ -150,6 +155,7 @@
       if (hayProductosPorKilo()) {
         lineas.push('');
         lineas.push('⚠️ El monto final exacto se confirma con el pesaje real antes del envío.');
+        lineas.push('Confirmá tu pedido y en menos de una hora te enviamos el importe exacto por WhatsApp!');
       }
   
       return lineas.join('\n');
