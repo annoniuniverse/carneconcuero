@@ -3,7 +3,7 @@
     "id": "lomo",
     "nombre": "Lomo",
     "tipoVenta": "kilo",
-    "precioKilo": 31900,
+    "precioKilo": 33900,
     "pesoAproxKg": 1.7,
     "imagen": "images/cortes/lomo.jpg",
     "descripcion": "Corte tierno y magro, ideal para medallones y bifes de lomo."
@@ -21,7 +21,7 @@
     "id": "entrana",
     "nombre": "Entraña",
     "tipoVenta": "kilo",
-    "precioKilo": 33000,
+    "precioKilo": 33900,
     "pesoAproxKg": 1.8,
     "imagen": "images/cortes/entrana.jpg",
     "descripcion": "Corte fino y sabroso, clásico de la parrilla argentina."
@@ -40,7 +40,7 @@
     "nombre": "Vacío",
     "tipoVenta": "kilo",
     "precioKilo": 19500,
-    "pesoAproxKg": 4,
+    "pesoAproxKg": 5,
     "imagen": "images/cortes/vacio.png",
     "descripcion": "Corte con fibra y sabor intenso, ideal a la parrilla o al horno."
   },
@@ -67,7 +67,7 @@
     "nombre": "Asado 5 / 6 Costillas",
     "tipoVenta": "kilo",
     "precioKilo": 25500,
-    "pesoAproxKg": 4,
+    "pesoAproxKg": 5,
     "imagen": "images/cortes/asado-6-costillas.png",
     "descripcion": "Corte brasileño con capa de grasa, jugoso y muy sabroso."
   },
