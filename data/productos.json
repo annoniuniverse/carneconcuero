@@ -30,7 +30,7 @@
     "id": "asado-banderita",
     "nombre": "Asado Banderita",
     "tipoVenta": "kilo",
-    "precioKilo": 25000,
+    "precioKilo": 25500,
     "pesoAproxKg": 1.0,
     "imagen": "images/cortes/asado-banderita.jpg",
     "descripcion": "Tira de asado con hueso, el corte más tradicional del asado."
@@ -39,7 +39,7 @@
     "id": "vacio",
     "nombre": "Vacío",
     "tipoVenta": "kilo",
-    "precioKilo": 19500,
+    "precioKilo": 19700,
     "pesoAproxKg": 5,
     "imagen": "images/cortes/vacio.png",
     "descripcion": "Corte con fibra y sabor intenso, ideal a la parrilla o al horno."
@@ -48,7 +48,7 @@
     "id": "ojo de bife",
     "nombre": "Ojo de Bife",
     "tipoVenta": "kilo",
-    "precioKilo": 33500,
+    "precioKilo": 33900,
     "pesoAproxKg": 2.5,
     "imagen": "images/cortes/ojo-de-bife.png",
     "descripcion": "Corte jugoso con buen marmoleo, perfecto para la parrilla."
@@ -57,7 +57,7 @@
     "id": "matambre-de-cerdo",
     "nombre": "Matambre de Cerdo",
     "tipoVenta": "kilo",
-    "precioKilo": 22200,
+    "precioKilo": 22900,
     "pesoAproxKg": 2.2,
     "imagen": "images/cortes/matambre-de-cerdo.png",
     "descripcion": "Corte fino entre carne y grasa, ideal para matambre a la pizza o arrollado."
@@ -75,7 +75,7 @@
     "id": "Peceto",
     "nombre": "Peceto Feteado",
     "tipoVenta": "kilo",
-    "precioKilo": 22800,
+    "precioKilo": 22900,
     "pesoAproxKg": 2.5,
     "imagen": "images/cortes/peceto-feteado.png",
     "descripcion": "Nalga en fetas finas, ideal para milanesas."
@@ -84,7 +84,7 @@
     "id": "Bife-de-Chorizo",
     "nombre": "Bife de Chorizo",
     "tipoVenta": "kilo",
-    "precioKilo": 27000,
+    "precioKilo": 29000,
     "pesoAproxKg": 1,
     "imagen": "images/cortes/bife-de-chorizo.png",
     "descripcion": "4 Bifes - Corte jugoso con buen marmoleo, perfecto para la parrilla, vuelta y vuelta."
